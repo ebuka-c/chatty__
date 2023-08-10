@@ -6,6 +6,7 @@ import 'controller.dart';
 class MessageBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<MessageController>(() => MessageController());
+    Get.lazyPut /*get instance ONLY when you want to use it*/ <
+        MessageController>(() => MessageController());
   }
 }

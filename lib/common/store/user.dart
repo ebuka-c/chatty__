@@ -9,20 +9,19 @@ import '../routes/names.dart';
 import '../values/storage.dart';
 
 //one of the config files for the app (to be loaded at the begining; as
-//soon as the app boots up) : we inject it globally
+//soon as the app boots up) ; we inject it globally
 class UserStore extends GetxController {
   static UserStore get to => Get.find();
 
   final _isLogin = false.obs;
-  //token
-  String token = '';
-  //profile
-  final _profile = UserItem().obs;
+  String token = ''; //to remember every user as a unique user
+
+  final _profile = UserItem().obs; //deals with user data
 
   //getters
   bool get isLogin => _isLogin.value;
-  UserItem get progiile => _profile.value;
-  bool get hasTolen => token.isNotEmpty;
+  UserItem get profile => _profile.value;
+  bool get hasToken => token.isNotEmpty;
 
   @override
   void onInit() {

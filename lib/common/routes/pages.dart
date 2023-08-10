@@ -1,6 +1,7 @@
 import 'package:chatty__/pages/message/bindings.dart';
 import 'package:chatty__/pages/message/view.dart';
 import 'package:chatty__/pages/frame/welcome/index.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../pages/frame/sign_in/index.dart';
@@ -11,6 +12,9 @@ class AppPages {
   //initial page
   static const INITIAL = AppRoutes.INITIAL;
   //routes list
+  static final RouteObserver<Route> observer = RouteObserver();
+  static List<String> history = [];
+
   static final List<GetPage> routes = [
     // about boot up the app
     GetPage(

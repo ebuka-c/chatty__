@@ -14,7 +14,7 @@ class WelcomeController extends GetxController {
   //able to use it later
   final state = WelcomeState();
 
-  //onReady function will be used for navigation/routing
+  //onReady function (from getx) will be used for navigation/routing
   //gets called immediately after the constructor is initialized
   @override
   void onReady() {

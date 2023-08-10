@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class StorageService extends GetxService {
-  //still a controller
+class StorageService
+    extends GetxService /*want it to be in the memory all the time*/ {
   static StorageService get to =>
       Get.find(); //Get.find returns instance of StorageService
   late final SharedPreferences
