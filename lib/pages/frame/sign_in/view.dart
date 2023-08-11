@@ -1,12 +1,13 @@
 import 'package:chatty__/common/values/appcolors.dart';
+import 'package:chatty__/pages/frame/sign_in/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import '../welcome/controller.dart';
+// import 'package:chatty__/common/routes/names.dart';
+// import 'index.dart';
 
 //bind the view with the controller using getview, mentioning the type of controller
-class SignInPage extends GetView<WelcomeController> {
+class SignInPage extends GetView<SignInController> {
   const SignInPage({super.key});
 
   @override
@@ -31,7 +32,7 @@ class SignInPage extends GetView<WelcomeController> {
     Widget _buildThirdPartyLogin(String loginType, String logo) {
       return GestureDetector(
         child: Container(
-          width: 205.w,
+          width: 210.w,
           height: 44.h,
           padding: EdgeInsets.all(10.h),
           margin: EdgeInsets.only(bottom: 15.h),
@@ -56,7 +57,8 @@ class SignInPage extends GetView<WelcomeController> {
                 logo == ''
                     ? Container()
                     : Container(
-                        padding: EdgeInsets.only(left: 40.w, right: 30.w),
+                        padding: EdgeInsets.only(right: 30.w),
+                        // margin: EdgeInsets.only(right: 10.w),
                         child: Image.asset('assets/icons/${logo}.png'),
                       ),
                 Container(
@@ -71,7 +73,9 @@ class SignInPage extends GetView<WelcomeController> {
                 )
               ]),
         ),
-        onTap: () {},
+        onTap: () {
+          controller.handleSignIn("google");
+        },
       );
     }
 

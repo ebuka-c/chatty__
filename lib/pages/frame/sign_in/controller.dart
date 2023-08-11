@@ -1,3 +1,4 @@
+import 'package:chatty__/common/entities/entities.dart';
 import 'package:chatty__/pages/frame/sign_in/state.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
@@ -13,7 +14,7 @@ class SignInController extends GetxController {
   ]);
 
   Future<void> handleSignIn(String type) async {
-    //1.google, 2.facebook, 3.apple, 4.phone
+    //1.email, 2.google, 3.facebook, 4.apple, 5.phone
     try {
       if (type == 'phone number') {
         if (kDebugMode) {
@@ -24,6 +25,17 @@ class SignInController extends GetxController {
             .signIn(); //async b/c we'd have to talk to and wait for the server
         if (user != null) {
           String? displayName = user.displayName;
+          String email = user.email;
+          String id = user.id;
+          String photoUrl = user.photoUrl ?? 'assets/icons/google.png';
+
+          //create an object using user info (based on the different fields above)
+          LoginRequestEntity loginPanelListRequestEntity = LoginRequestEntity();
+          loginPanelListRequestEntity.avatar = photoUrl;
+          loginPanelListRequestEntity.name = displayName;
+          loginPanelListRequestEntity.email = email;
+          loginPanelListRequestEntity.open_id = id;
+          loginPanelListRequestEntity.type = 2;
         }
       } else {
         if (kDebugMode) {
