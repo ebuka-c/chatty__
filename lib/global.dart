@@ -9,6 +9,7 @@ class Global {
     //since it's async, app will wait until everything is loaded
     WidgetsFlutterBinding
         .ensureInitialized(); //making sure dependencies are loaded before widgets
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,)
     await Get.putAsync<StorageService>(
         () => StorageService().init()); //initialize storage service
     Get.put<UserStore>(UserStore());
