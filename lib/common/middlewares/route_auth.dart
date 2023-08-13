@@ -18,7 +18,8 @@ class RouteAuthMiddleware extends GetMiddleware {
     //UserStore saves the user data,  whether the user has logged in or not
     if (UserStore.to.isLogin ||
         route == AppRoutes.SIGN_IN ||
-        route == AppRoutes.INITIAL) {
+        route == AppRoutes.INITIAL ||
+        route == AppRoutes.Message) {
       return null;
     } else {
       Future.delayed(const Duration(seconds: 2),

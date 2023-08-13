@@ -4,6 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../../common/routes/names.dart';
+
 class SignInController extends GetxController {
   SignInController(); //initialize constructor
   final state = SignInState(); //initiialize state class
@@ -36,6 +38,7 @@ class SignInController extends GetxController {
           loginPanelListRequestEntity.email = email;
           loginPanelListRequestEntity.open_id = id;
           loginPanelListRequestEntity.type = 2;
+          asyncPostAllData(/*loginPageListRequestEntity*/);
         }
       } else {
         if (kDebugMode) {
@@ -47,5 +50,23 @@ class SignInController extends GetxController {
         print('error with login $e');
       }
     }
+  }
+
+  // asyncPostAllData(){
+  // }
+  //will load all async data (data from server)
+  asyncPostAllData(/*LoginRequestEntity loginRequestEntity*/) {
+    // EasyLoading.show(indicator: CircularProgressIndicator(),maskType: EasyLoadingMaskType.clear,dismissOnTap: true);
+    // var result = await UserAPI.Login(params: loginRequestEntity);
+    // print(result);
+    // if(result.code==0){
+    //   await UserStore.to.saveProfile(result.data!);
+    //   EasyLoading.dismiss();
+    print('let\'s get to message page');
+    Get.offAllNamed(AppRoutes.Message);
+    // }else{
+    //   EasyLoading.dismiss();
+    //   toastInfo(msg: 'internet error');
+    // }
   }
 }

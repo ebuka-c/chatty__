@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../pages/frame/sign_in/index.dart';
+import '../../pages/profile/index.dart';
 import '../middlewares/route_auth.dart';
 import 'names.dart';
 
@@ -57,9 +58,12 @@ class AppPages {
         RouteAuthMiddleware(priority: 1),
       ],
     ),
-    // //我的
-    // GetPage(name: AppRoutes.Profile, page: () => ProfilePage(), binding: ProfileBinding()),
-    // //聊天详情
+    //我的
+    GetPage(
+        name: AppRoutes.Profile,
+        page: () => ProfilePage(),
+        binding: ProfileBinding()),
+    //聊天详情
     // GetPage(name: AppRoutes.Chat, page: () => ChatPage(), binding: ChatBinding()),
 
     // GetPage(name: AppRoutes.Photoimgview, page: () => PhotoImgViewPage(), binding: PhotoImgViewBinding()),
