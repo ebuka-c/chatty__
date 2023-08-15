@@ -1,9 +1,9 @@
 import 'package:chatty__/common/entities/entities.dart';
+import 'package:chatty__/common/store/user.dart';
 import 'package:chatty__/pages/frame/sign_in/state.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
 import '../../../common/routes/names.dart';
 
 class SignInController extends GetxController {
@@ -55,18 +55,11 @@ class SignInController extends GetxController {
   // asyncPostAllData(){
   // }
   //will load all async data (data from server)
-  asyncPostAllData(/*LoginRequestEntity loginRequestEntity*/) {
-    // EasyLoading.show(indicator: CircularProgressIndicator(),maskType: EasyLoadingMaskType.clear,dismissOnTap: true);
-    // var result = await UserAPI.Login(params: loginRequestEntity);
-    // print(result);
-    // if(result.code==0){
-    //   await UserStore.to.saveProfile(result.data!);
-    //   EasyLoading.dismiss();
+  asyncPostAllData() async {
     print('let\'s get to message page');
+
+    var response = await HttpUtil().get('/api/index');
+    UserStore.to.setIsLogin == true;
     Get.offAllNamed(AppRoutes.Message);
-    // }else{
-    //   EasyLoading.dismiss();
-    //   toastInfo(msg: 'internet error');
-    // }
   }
 }

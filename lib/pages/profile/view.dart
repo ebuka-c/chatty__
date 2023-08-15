@@ -39,16 +39,18 @@ class ProfilePage extends GetView<ProfileController> {
           child: Image(
               width: 120.h,
               height: 120.h,
+              fit: BoxFit.cover,
               image: AssetImage("assets/images/account_header.png")),
         ),
         Positioned(
-            bottom: 20.w,
+            bottom: 0.w,
             right: 0.w,
             height: 35.w,
             child: GestureDetector(
               child: Container(
                 height: 35.w,
                 width: 35.w,
+                padding: EdgeInsets.all(7.w),
                 decoration: BoxDecoration(
                     color: AppColors.primaryElement,
                     borderRadius: BorderRadius.all(Radius.circular(40.w)),
@@ -102,7 +104,7 @@ class ProfilePage extends GetView<ProfileController> {
       child: Container(
         width: 295.w,
         height: 44.h,
-        margin: EdgeInsets.only(top: 60.h, bottom: 30.h),
+        margin: EdgeInsets.only(top: 0.h, bottom: 30.h),
         decoration: BoxDecoration(
             color: AppColors.primarySecondaryElementText,
             borderRadius: BorderRadius.all(Radius.circular(5)),
